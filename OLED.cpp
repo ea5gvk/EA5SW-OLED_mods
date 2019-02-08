@@ -566,20 +566,22 @@ void COLED::writeDMRInt(unsigned int slotNo,const std::string& src,bool group,co
         }
         else
         {
-            m_display.fillRect(0,OLED_LINE5,m_display.width(),40,BLACK);
-            m_display.setCursor(0,OLED_LINE5);
+            m_display.fillRect(0,OLED_LINE2,m_display.width(),100,BLACK);
+            m_display.setCursor(0,OLED_LINE2);
+	    m_display.setTextSize (2);
             m_display.printf("%s",src.c_str());
             m_display.setCursor(0,OLED_LINE6);
+	    m_display.setTextSize (1);
             m_display.printf("Slot: %i %s %s%s",slotNo,type,group ? "TG: " : "",dst.c_str());
         }
 
     }
     else
     {
-        m_display.fillRect(0,OLED_LINE3,m_display.width(),20,BLACK);
-        m_display.setCursor(0,OLED_LINE3);
+        m_display.fillRect(0,OLED_LINE5,m_display.width(),20,BLACK);
+        m_display.setCursor(0,OLED_LINE5);
         m_display.printf("%s",src.c_str());
-        m_display.setCursor(0,OLED_LINE4);
+        m_display.setCursor(0,OLED_LINE6);
         m_display.printf("Slot: %i %s %s%s",slotNo,type,group ? "TG: " : "",dst.c_str());
     }
 
@@ -606,14 +608,15 @@ void COLED::clearDMRInt(unsigned int slotNo)
             m_display.print("Slot: 1 Listening");
         }
         else {
-            m_display.fillRect(0, OLED_LINE5, m_display.width(), 20, BLACK);
-            m_display.setCursor(0, OLED_LINE5);
+            m_display.fillRect(0, OLED_LINE2, m_display.width(), 40, BLACK);
+            m_display.fillRect(0, OLED_LINE6, m_display.width(), 20, BLACK);
+            m_display.setCursor(0, OLED_LINE6);
 	    m_display.setTextColor(WHITE); 
             m_display.print("Slot: 2 Listening");
 	    }
     }
     else {
-        m_display.fillRect(0, OLED_LINE5, m_display.width(), 40, BLACK);
+        m_display.fillRect(0, OLED_LINE5, m_display.width(), 20, BLACK);	
         m_display.setCursor(0,OLED_LINE5);
         m_display.setTextColor(WHITE); 
         m_display.printf("Slot: %i Listening",slotNo);
