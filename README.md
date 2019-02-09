@@ -10,5 +10,7 @@ New layout for Idle Screens.
 
 New layout for Dual Hotspots.
 
+The OLED.cpp file have temperature code for Raspberry Pi
+The OLED_nanopi.cpp have temperature code for Nanopi, rename it to OLED.cpp to use
 
 
